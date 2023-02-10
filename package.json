@@ -7,6 +7,10 @@
     "test": "mocha test/test.js",
     "prepare": "rollup -c"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inspirnathan/codemirror-lang-mermaid.git"
+  },
   "keywords": [
     "codemirror",
     "mermaid",
