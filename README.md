@@ -12,7 +12,7 @@ npm install codemirror-lang-mermaid
 Example usage:
 ```js
 import { basicSetup, EditorView } from 'codemirror';
-import { mindmap, mindmapTags } from 'codemirror-lang-mermaid';
+import { mermaid, mindmapTags } from 'codemirror-lang-mermaid';
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
 
 const myHighlightStyle = HighlightStyle.define([
@@ -43,7 +43,7 @@ new EditorView({
       Pen and paper
       Mermaid
 `,
-  extensions: [basicSetup, mindmap(), syntaxHighlighting(myHighlightStyle)],
+  extensions: [basicSetup, mermaid(), syntaxHighlighting(myHighlightStyle)],
   parent: document.body,
 });
 ```
@@ -56,6 +56,7 @@ If you run this code in the browser, you should get syntax highlighting!
 [Mermaid](https://mermaid.js.org/intro/) contains many different types of diagrams. Each diagram need its own [Lezer](https://lezer.codemirror.net/) grammar file. I'm currently working on building a grammar for each diagram. The following diagrams supported so far.
 
 - [mindmaps](https://mermaid.js.org/syntax/mindmap.html)
+- [pie charts](https://mermaid.js.org/syntax/pie.html)
 
 ## Supported Tags
 CodeMirror supports the ability to create custom [tags](https://lezer.codemirror.net/docs/ref/#highlight.Tag). These tags are useful for styling tokens from a grammar. I have created the following tags for each type of Mermaid diagram.
@@ -67,3 +68,12 @@ CodeMirror supports the ability to create custom [tags](https://lezer.codemirror
 - lineText3
 - lineText4
 - lineText5
+
+### Pie
+- diagramName
+- lineComment
+- number
+- showData
+- string
+- title
+- titleText
