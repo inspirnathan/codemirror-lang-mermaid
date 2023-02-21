@@ -1,0 +1,111 @@
+# Pie
+
+pie
+
+==>
+
+PieDiagram(DiagramName)
+
+# ShowData
+
+pie showData
+
+==>
+
+PieDiagram(DiagramName,ShowData)
+
+# Title
+
+pie title
+
+==>
+
+PieDiagram(DiagramName,Title,TitleText)
+
+# Title + TitleText
+
+pie title This is some title text
+
+==>
+
+PieDiagram(DiagramName,Title,TitleText)
+
+# Dataset
+
+pie
+"Calcium" : 42.96
+
+==>
+
+PieDiagram(DiagramName,Dataset(String,Number))
+
+# Datasets
+
+pie
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+
+# ShowData + Title
+
+pie showData title
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText)
+
+# ShowData + Title + TitleText
+
+pie showData title This is some title text
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText)
+
+# ShowData + Title + TitleText + Dataset
+
+pie showData title This is some title text
+"Calcium" : 42.96
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText,Dataset(String,Number))
+
+# ShowData + Title + TitleText + Datasets
+
+pie showData title This is some title text
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+
+# Title + TitleText + Dataset
+
+pie title This is some title text
+"Calcium" : 42.96
+
+==>
+
+PieDiagram(DiagramName,Title,TitleText,Dataset(String,Number))
+
+# Title + TitleText + Datasets
+
+pie title This is some title text
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,Title,TitleText,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+

@@ -1,0 +1,58 @@
+@top PieDiagram {
+  pieDocument+
+}
+
+@skip { space | LineComment | newline}
+
+pieDocument {
+  DiagramName |
+  DiagramName ShowData |
+  DiagramName ShowData Title |
+  DiagramName ShowData Title TitleText |
+  DiagramName ShowData Title TitleText Dataset+ |
+  DiagramName ShowData Dataset+ |
+  DiagramName Title |
+  DiagramName Title Dataset+ |
+  DiagramName Title TitleText |
+  DiagramName Title TitleText Dataset+ |
+  DiagramName Dataset+
+}
+
+Dataset { 
+  String ":" Number
+}
+
+DiagramName {
+  kw<"pie">
+}
+
+Title {
+  kw<"title">
+}
+
+ShowData {
+  kw<"showData">
+}
+
+kw<term> { @specialize<word, term> }
+
+@external tokens titleText from "./tokens" { TitleText }
+
+@tokens {
+
+  word { @asciiLetter+ }
+
+  Number { @digit+ ("." @digit+)? }
+
+  String { '"' (!["\\] | "\\" _)* '"' }
+
+  LineComment { "%%" ![\n]* }
+
+  space { $[ \t\r]+ }
+
+  newline { "\n" }
+}
+
+@external propSource pieHighlighting from "./highlight"
+
+@detectDelim

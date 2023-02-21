@@ -8,3 +8,13 @@ export const mindmapTags = {
   lineText4: Tag.define(),
   lineText5: Tag.define(),
 };
+
+export const pieTags = {
+  diagramName: Tag.define(),
+  lineComment: Tag.define(),
+  number: Tag.define(),
+  showData: Tag.define(),
+  string: Tag.define(),
+  title: Tag.define(),
+  titleText: Tag.define(),
+};

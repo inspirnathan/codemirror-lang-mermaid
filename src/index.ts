@@ -1,19 +1,15 @@
-import { LRLanguage, LanguageDescription, LanguageSupport } from '@codemirror/language';
-import { parser as mindmapParser } from './mindmap/mindmap.grammar';
-export { mindmapTags } from './mindmap/tags';
+export {
+  mermaidLanguage,
+  mindmapLanguage,
+  pieLanguage,
+} from './language-definitions';
 
-export const mindmapLanguage = LRLanguage.define({
-  name: 'mindmap',
-  parser: mindmapParser,
-});
+export {
+  mermaidLanguageDescription,
+  mindmapLanguageDescription,
+  pieLanguageDescription,
+} from './language-descriptions';
 
-export const mindmapLanguageDescription = LanguageDescription.of({
-  name: 'mermaid',
-  load: async () => {
-    return mindmap();
-  },
-});
+export { mermaid, mindmap, pie } from './language-support';
 
-export function mindmap() {
-  return new LanguageSupport(mindmapLanguage);
-}
+export { mindmapTags, pieTags } from './tags';

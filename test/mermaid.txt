@@ -1,0 +1,15 @@
+# Mindmap
+
+mindmap
+
+==>
+
+MermaidDiagram(MindmapDiagram(DiagramName))
+
+# Pie
+
+pie
+
+==>
+
+MermaidDiagram(PieDiagram(DiagramName))
