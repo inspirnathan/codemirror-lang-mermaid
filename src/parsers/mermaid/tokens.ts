@@ -10,9 +10,7 @@ const diagramMap: Record<string, number> = {
 
 const diagrams = Object.keys(diagramMap);
 
-const longestTextLength = diagrams.reduce((a, b) => {
-  return a.length > b.length ? a : b;
-}).length;
+const longestTextLength = Math.max(...diagrams.map((el) => el.length));
 
 export const diagramText = new ExternalTokenizer((input) => {
   if (skipCodePoints.includes(input.next)) return;
