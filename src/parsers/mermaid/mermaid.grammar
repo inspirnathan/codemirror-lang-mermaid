@@ -1,4 +1,3 @@
-// See this link for entire Pie chart syntax in Mermaid: https://mermaid.js.org/syntax/pie.html#syntax
 @top MermaidDiagram {
   PieDiagram | MindmapDiagram | empty
 }
