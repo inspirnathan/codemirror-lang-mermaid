@@ -53,7 +53,7 @@ If you run this code in the browser, you should get syntax highlighting!
 ![Mermaid mindmap syntax highlighting](https://raw.githubusercontent.com/inspirnathan/codemirror-lang-mermaid/main/.github/mindmap-syntax-highlighting.png)
 
 ## Supported Diagrams
-[Mermaid](https://mermaid.js.org/intro/) contains many different types of diagrams. Each diagram need its own [Lezer](https://lezer.codemirror.net/) grammar file. I'm currently working on building a grammar for each diagram. The following diagrams supported so far.
+[Mermaid](https://mermaid.js.org/intro/) contains many different types of diagrams. Each diagram need its own [Lezer](https://lezer.codemirror.net/) grammar file. I'm currently working on building a grammar for each diagram. The following diagrams are supported so far.
 
 - [mindmaps](https://mermaid.js.org/syntax/mindmap.html)
 - [pie charts](https://mermaid.js.org/syntax/pie.html)
