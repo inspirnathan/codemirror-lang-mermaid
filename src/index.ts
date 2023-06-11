@@ -12,4 +12,4 @@ export {
 
 export { mermaid, mindmap, pie } from './language-support';
 
-export { mindmapTags, pieTags } from './tags';
+export { mermaidTags, mindmapTags, pieTags } from './tags';
