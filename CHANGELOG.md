@@ -1,3 +1,11 @@
+## [0.2.2](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.2.1...v0.2.2) (2023-06-26)
+
+### Features
+
+- add parent tags to mermaid tag definitions
+
+
+
 ## [0.2.1](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.2.0...v0.2.1) (2023-02-20)
 
 ### Features
