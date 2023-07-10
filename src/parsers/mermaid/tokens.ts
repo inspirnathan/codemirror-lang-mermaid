@@ -1,7 +1,11 @@
 import { ExternalTokenizer } from '@lezer/lr';
-import { MindmapDiagram, PieDiagram, empty } from './mermaid.grammar.terms';
+import {
+  preDiagramLine,
+  MindmapDiagram,
+  PieDiagram,
+} from './mermaid.grammar.terms';
 
-const skipCodePoints = [-1, 9, 10, 13, 32, 9];
+const skipCodePoints = [-1, 9, 13, 32, 9];
 
 const diagramMap: Record<string, number> = {
   mindmap: MindmapDiagram,
@@ -10,25 +14,28 @@ const diagramMap: Record<string, number> = {
 
 const diagrams = Object.keys(diagramMap);
 
-const longestTextLength = Math.max(...diagrams.map((el) => el.length));
-
 export const diagramText = new ExternalTokenizer((input) => {
   if (skipCodePoints.includes(input.next)) return;
 
   let tokens = '';
 
-  for (let i = 0; i < longestTextLength; i++) {
-    const codePoint = input.peek(i);
-    if (skipCodePoints.includes(codePoint)) break;
-    tokens += String.fromCodePoint(codePoint);
-  }
-
-  while (input.next !== -1) {
+  while (input.next != 10 && input.next !== -1) {
+    tokens += String.fromCodePoint(input.next);
     input.advance();
   }
 
-  if (diagrams.includes(tokens)) input.acceptToken(diagramMap[tokens]);
-  else input.acceptToken(empty);
+  input.advance();
 
-  return;
+  const activeDiagram = diagrams.filter((diagram) => {
+    return tokens.startsWith(diagram);
+  });
+
+  if (activeDiagram.length > 0) {
+    while (input.next !== -1) {
+      input.advance();
+    }
+    input.acceptToken(diagramMap[activeDiagram[0]]);
+  } else {
+    input.acceptToken(preDiagramLine);
+  }
 });
