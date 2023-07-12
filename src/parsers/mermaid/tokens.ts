@@ -5,7 +5,7 @@ import {
   PieDiagram,
 } from './mermaid.grammar.terms';
 
-const skipCodePoints = [-1, 9, 13, 32, 9];
+const skipCodePoints = [-1, 9, 13, 32];
 
 const diagramMap: Record<string, number> = {
   mindmap: MindmapDiagram,
