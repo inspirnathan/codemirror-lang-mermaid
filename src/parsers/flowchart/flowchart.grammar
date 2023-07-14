@@ -1,0 +1,297 @@
+@top FlowchartDiagram {
+  flowchartDocument+
+}
+
+@skip { spaces }
+
+@skip {} {
+  String {
+    "'" (stringContentSingle)* ("'") |
+    '"' (stringContentDouble)* ('"') |
+    "`" (stringContentBacktick)* ("`")
+  }
+}
+
+flowchartDocument {
+  DiagramName newline* |
+  DiagramName newline* Orientation newline* |
+  DiagramName newline* Orientation newline* flowchartSection |
+  DiagramName newline* Orientation newline* flowchartSection (newline+ flowchartSection)+ newline*
+}
+
+DiagramName {
+  kw<"flowchart"> |
+  kw<"graph">
+}
+
+Orientation {
+  kw<"TB"> |
+  kw<"TD"> |
+  kw<"BT"> |
+  kw<"RL"> |
+  kw<"LR">
+}
+
+flowchartSection {
+  LineComment |
+  (
+    "&" |
+    ":::" |
+    ":" |
+    "#" |
+    "," |
+    NodeId |
+    Node |
+    String |
+    Link |
+    Keyword |
+    NodeEdge |
+    Orientation |
+    HyphenatedWord |
+    Number
+  )+ ";"?
+}
+
+HyphenatedWord {
+  identifier "-" identifier
+}
+
+NodeEdge {
+  doubleHyphen edgeText Link |
+  doubleEqual edgeText Link |
+  hyphenDot edgeText "."* "-" (arrowCircleEnd | arrowCrossEnd)? |
+  hyphenDot edgeText "."* arrowEnd1
+}
+
+NodeId {
+  identifier |
+  identifierStartsWithO |
+  identifierStartsWithX
+}
+
+text {
+  NodeText | String
+}
+
+edgeText {
+  NodeEdgeText | String
+}
+
+Node {
+  roundNode |
+  stadiumNode |
+  subroutineNode |
+  cylindricalNode |
+  circleNode |
+  asymmetricNode |
+  rhombusNode |
+  hexagonNode |
+  bracketNode |
+  doubleCircleNode |
+  linkTextNode
+}
+
+roundNode {
+  "(" text ")"
+}
+
+stadiumNode {
+  "(" "[" text "]" ")"
+}
+
+subroutineNode {
+  "[" "[" text "]" "]"
+}
+
+cylindricalNode {
+  "[" "(" text ")" "]"
+}
+
+circleNode {
+  "(" "(" text ")" ")"
+}
+
+asymmetricNode {
+  asymmetricStart text "]"
+}
+
+rhombusNode {
+  "{" text "}"
+}
+
+hexagonNode {
+  "{" "{" text "}" "}"
+}
+
+bracketNode {
+  "[" text "]"
+}
+
+doubleCircleNode {
+  "(" "(" "(" text ")" ")" ")"
+}
+
+linkTextNode {
+  "|" text "|"
+}
+
+Link {
+  "~~~" |
+  "-->" |
+  "--->" |
+  "---" "-"* linkEnd1? |
+  "==>" |
+  "===>" |
+  "===" "="* linkEnd2? |
+  "--o" |
+  "==o" |
+  "--x" |
+  "==x" |
+  "<-->" |
+  "<==>" |
+  "<-.->" |
+  arrowCircleStart1 "-"* linkEnd1? |
+  arrowCircleStart2 "="* linkEnd2? |
+  arrowCircleStart3 "."* "-" linkEnd1? |
+  arrowCrossStart1 "-"* linkEnd1? |
+  arrowCrossStart2 "="* linkEnd2? |
+  arrowCrossStart3 "."* "-" linkEnd1? |
+  arrowStart1 "-"* linkEnd1? |
+  arrowStart2 "="* linkEnd2? |
+  arrowStart3 "."* "-" linkEnd1? |
+  arrowStart3 "."+ arrowEnd1? |
+  hyphenDot "."* arrowEnd1 |
+  hyphenDot "."* "-" |
+  hyphenDot "."* "-" arrowCircleEnd |
+  hyphenDot "."* "-" arrowCrossEnd
+}
+
+linkEnd1 {
+  arrowCircleEnd |
+  arrowCrossEnd |
+  arrowEnd1
+}
+
+linkEnd2 {
+  arrowCircleEnd |
+  arrowCrossEnd |
+  arrowEnd2
+}
+
+Keyword {
+  kw<"subgraph"> |
+  kw<"end"> |
+  kw<"direction"> |
+  kw<"click"> |
+  kw<"call"> |
+  kw<"href"> |
+  kw<"style"> |
+  kw<"class"> |
+  kw<"classDef"> |
+  kw<"style"> |
+  kw<"linkStyle"> |
+  kw<"_self"> |
+  kw<"_blank"> |
+  kw<"_parent"> |
+  kw<"_top">
+}
+
+kw<term> { @specialize<identifier, term> }
+
+@external tokens nodeEdgeText from "./tokens" { NodeEdgeText }
+
+@external tokens nodeText from "./tokens" { NodeText }
+
+@tokens {
+  spaces { $[\u0009 \u000b\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000\ufeff]+ }
+
+  newline { $[\r\n\u2028\u2029] }
+
+  LineComment { "%%" ![\n]* }
+
+  Number { @digit+ }
+
+  doubleHyphen { "--" }
+
+  doubleEqual { "==" }
+
+  hyphenDot { "-." }
+
+  arrowCircleStart1 { "o--" }
+
+  arrowCircleStart2 { "o==" }
+
+  arrowCircleStart3 { "o-." }
+
+  arrowCrossStart1 { "x--" }
+
+  arrowCrossStart2 { "x==" }
+
+  arrowCrossStart3 { "x-." }
+
+  arrowStart1 { "<--" }
+
+  arrowStart2 { "<==" }
+
+  arrowStart3 { "<-." }
+
+  arrowCircleEnd { "o" }
+
+  arrowCrossEnd { "x" }
+
+  arrowEnd1 { "->" }
+
+  arrowEnd2 { "=>" }
+
+  asymmetricStart { ">" }
+
+  identifierChar { @asciiLetter | $[_$\u{a1}-\u{10ffff}] }
+
+  word { identifierChar (identifierChar | @digit)* }
+
+  identifier { word }
+
+  identifierStartsWithO { "o" word }
+
+  identifierStartsWithX { "x" word }
+
+  @precedence { spaces, newline, identifier }
+
+  @precedence {
+    identifierStartsWithO,
+    identifierStartsWithX,
+    arrowCircleStart1,
+    arrowCircleStart2,
+    arrowCircleStart3,
+    arrowCircleEnd,
+    identifier
+  }
+
+  @precedence {
+    identifierStartsWithO,
+    identifierStartsWithX,
+    arrowCrossStart1,
+    arrowCrossStart2,
+    arrowCrossStart3,
+    arrowCrossEnd,
+    identifier
+  }
+
+  stringContentSingle { ![']+ }
+
+  stringContentDouble { !["]+ }
+
+  stringContentBacktick { ![`]+ }
+
+  "[" "]"
+
+  "(" ")"
+
+  "{" "}"
+
+  ">" "|"
+}
+
+@external propSource flowchartHighlighting from "./highlight"
+
+@detectDelim

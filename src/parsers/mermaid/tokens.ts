@@ -3,6 +3,7 @@ import {
   preDiagramLine,
   MindmapDiagram,
   PieDiagram,
+  FlowchartDiagram,
 } from './mermaid.grammar.terms';
 
 const skipCodePoints = [-1, 9, 13, 32];
@@ -10,6 +11,8 @@ const skipCodePoints = [-1, 9, 13, 32];
 const diagramMap: Record<string, number> = {
   mindmap: MindmapDiagram,
   pie: PieDiagram,
+  flowchart: FlowchartDiagram,
+  graph: FlowchartDiagram,
 };
 
 const diagrams = Object.keys(diagramMap);

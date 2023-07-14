@@ -1,5 +1,5 @@
 import { LanguageDescription } from '@codemirror/language';
-import { mermaid, mindmap, pie } from '../language-support';
+import { mermaid, mindmap, pie, flowchart } from '../language-support';
 
 export const mermaidLanguageDescription = LanguageDescription.of({
   name: 'mermaid',
@@ -19,5 +19,13 @@ export const pieLanguageDescription = LanguageDescription.of({
   name: 'pie',
   load: async () => {
     return pie();
+  },
+});
+
+export const flowchartLanguageDescription = LanguageDescription.of({
+  name: 'pie',
+  alias: ['graph'],
+  load: async () => {
+    return flowchart();
   },
 });

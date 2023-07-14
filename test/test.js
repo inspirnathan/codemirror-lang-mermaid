@@ -2,13 +2,19 @@ import {
   mermaidLanguage,
   mindmapLanguage,
   pieLanguage,
+  flowchartLanguage,
 } from '../dist/index.js';
 import { fileTests } from '@lezer/generator/dist/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
-const languages = [mermaidLanguage, mindmapLanguage, pieLanguage];
+const languages = [
+  mermaidLanguage,
+  mindmapLanguage,
+  pieLanguage,
+  flowchartLanguage,
+];
 
 let testDir = path.dirname(fileURLToPath(import.meta.url));
 

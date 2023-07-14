@@ -13,3 +13,19 @@ pie
 ==>
 
 MermaidDiagram(PieDiagram(DiagramName))
+
+# Flowchart
+
+flowchart
+
+==>
+
+MermaidDiagram(FlowchartDiagram(DiagramName))
+
+# Graph
+
+graph
+
+==>
+
+MermaidDiagram(FlowchartDiagram(DiagramName))

@@ -1,6 +1,11 @@
 import { LRLanguage } from '@codemirror/language';
 import { parseMixed } from '@lezer/common';
-import { mermaidParser, mindmapParser, pieParser } from '../parsers';
+import {
+  mermaidParser,
+  mindmapParser,
+  pieParser,
+  flowchartParser,
+} from '../parsers';
 
 export const mermaidLanguage = LRLanguage.define({
   name: 'mermaid',
@@ -8,6 +13,7 @@ export const mermaidLanguage = LRLanguage.define({
     wrap: parseMixed((node) => {
       if (node.name === 'MindmapDiagram') return { parser: mindmapParser };
       if (node.name === 'PieDiagram') return { parser: pieParser };
+      if (node.name === 'FlowchartDiagram') return { parser: flowchartParser };
       return null;
     }),
   }),
@@ -21,4 +27,9 @@ export const mindmapLanguage = LRLanguage.define({
 export const pieLanguage = LRLanguage.define({
   name: 'pie',
   parser: pieParser,
+});
+
+export const flowchartLanguage = LRLanguage.define({
+  name: 'flowchart',
+  parser: flowchartParser,
 });

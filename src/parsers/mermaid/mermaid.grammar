@@ -1,6 +1,10 @@
 // See this link for entire Pie chart syntax in Mermaid: https://mermaid.js.org/syntax/pie.html#syntax
 @top MermaidDiagram {
-  preDiagramLine* (PieDiagram | MindmapDiagram)
+  preDiagramLine* (
+    PieDiagram |
+    MindmapDiagram |
+    FlowchartDiagram
+  )
 }
 
 @skip { space }
@@ -9,6 +13,11 @@
   space { $[ \t\r]+ }
 }
 
-@external tokens diagramText from "./tokens" { preDiagramLine, PieDiagram, MindmapDiagram }
+@external tokens diagramText from "./tokens" {
+  preDiagramLine,
+  PieDiagram,
+  MindmapDiagram,
+  FlowchartDiagram
+}
 
 @detectDelim
