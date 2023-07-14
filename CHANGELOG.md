@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.2.2...v0.3.0) (2023-07-14)
+
+### Features
+
+- flowchart diagram support
+- allow text before diagram to prevent breaks in syntax highlighting
+
+
+
 ## [0.2.2](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.2.1...v0.2.2) (2023-06-26)
 
 ### Features

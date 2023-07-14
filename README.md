@@ -57,9 +57,12 @@ If you run this code in the browser, you should get syntax highlighting!
 
 - [mindmaps](https://mermaid.js.org/syntax/mindmap.html)
 - [pie charts](https://mermaid.js.org/syntax/pie.html)
+- [flowchart](https://mermaid.js.org/syntax/flowchart.html)
 
 ## Supported Tags
-CodeMirror supports the ability to create custom [tags](https://lezer.codemirror.net/docs/ref/#highlight.Tag). These tags are useful for styling tokens from a grammar. I have created the following tags for each type of Mermaid diagram.
+CodeMirror supports the ability to create custom [tags](https://lezer.codemirror.net/docs/ref/#highlight.Tag). These tags are useful for styling tokens from a grammar. I have created tags for each type of Mermaid diagram.
+
+> Note: Each custom tag inherits from a [parent tag](https://github.com/inspirnathan/codemirror-lang-mermaid/blob/main/src/tags/index.ts) if you prefer to use them for styling instead.
 
 ### Mindmap
 - diagramName
@@ -77,3 +80,16 @@ CodeMirror supports the ability to create custom [tags](https://lezer.codemirror
 - string
 - title
 - titleText
+
+### Flowchart
+- diagramName
+- keyword
+- lineComment
+- link
+- nodeEdge
+- nodeEdgeText
+- nodeId
+- nodeText
+- number
+- orientation
+- string
