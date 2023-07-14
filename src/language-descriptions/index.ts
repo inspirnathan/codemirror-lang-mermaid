@@ -23,7 +23,7 @@ export const pieLanguageDescription = LanguageDescription.of({
 });
 
 export const flowchartLanguageDescription = LanguageDescription.of({
-  name: 'pie',
+  name: 'flowchart',
   alias: ['graph'],
   load: async () => {
     return flowchart();
