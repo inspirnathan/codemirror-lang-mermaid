@@ -36,3 +36,15 @@ export const flowchartTags = {
   orientation: Tag.define(t.modifier),
   string: Tag.define(t.string),
 };
+
+export const sequenceTags = {
+  diagramName: Tag.define(mermaidTags.diagramName),
+  arrow: Tag.define(t.contentSeparator),
+  keyword1: Tag.define(t.keyword),
+  keyword2: Tag.define(t.controlKeyword),
+  lineComment: Tag.define(t.lineComment),
+  messageText1: Tag.define(t.string),
+  messageText2: Tag.define(t.content),
+  nodeText: Tag.define(t.variableName),
+  position: Tag.define(t.modifier),
+};

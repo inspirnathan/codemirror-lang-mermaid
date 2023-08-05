@@ -3,6 +3,7 @@ import {
   mindmapLanguage,
   pieLanguage,
   flowchartLanguage,
+  sequenceLanguage,
 } from '../dist/index.js';
 import { fileTests } from '@lezer/generator/dist/test';
 import * as fs from 'fs';
@@ -14,6 +15,7 @@ const languages = [
   mindmapLanguage,
   pieLanguage,
   flowchartLanguage,
+  sequenceLanguage,
 ];
 
 let testDir = path.dirname(fileURLToPath(import.meta.url));

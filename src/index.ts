@@ -3,6 +3,7 @@ export {
   mindmapLanguage,
   pieLanguage,
   flowchartLanguage,
+  sequenceLanguage,
 } from './language-definitions';
 
 export {
@@ -10,8 +11,15 @@ export {
   mindmapLanguageDescription,
   pieLanguageDescription,
   flowchartLanguageDescription,
+  sequenceLanguageDescription,
 } from './language-descriptions';
 
-export { mermaid, mindmap, pie, flowchart } from './language-support';
+export { mermaid, mindmap, pie, flowchart, sequence } from './language-support';
 
-export { mermaidTags, mindmapTags, pieTags, flowchartTags } from './tags';
+export {
+  mermaidTags,
+  mindmapTags,
+  pieTags,
+  flowchartTags,
+  sequenceTags,
+} from './tags';

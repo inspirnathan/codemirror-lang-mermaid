@@ -3,7 +3,8 @@
   preDiagramLine* (
     PieDiagram |
     MindmapDiagram |
-    FlowchartDiagram
+    FlowchartDiagram |
+    SequenceDiagram
   )
 }
 
@@ -17,7 +18,8 @@
   preDiagramLine,
   PieDiagram,
   MindmapDiagram,
-  FlowchartDiagram
+  FlowchartDiagram,
+  SequenceDiagram
 }
 
 @detectDelim

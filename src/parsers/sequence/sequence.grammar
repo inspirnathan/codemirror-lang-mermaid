@@ -1,0 +1,125 @@
+@top SequenceDiagram {
+  sequenceDocument
+}
+
+@skip { spaces }
+
+sequenceDocument {
+  DiagramName newline* |
+  DiagramName newline* sequenceSection newline* |
+  DiagramName newline* sequenceSection (newline+ sequenceSection)+ newline*
+}
+
+sequenceSection {
+  LineComment |
+  NodeText Arrow ArrowSuffix? newline* NodeText ":" MessageText1 |
+  (Create | Destroy)? (Participant | Actor)? NodeText (As NodeText)? |
+  (Activate | Deactivate) NodeText |
+  Note Position NodeText ("," NodeText)? ":" MessageText1 |
+  Keyword MessageText2 |
+  Autonumber |
+  End |
+  Link NodeText ":" MessageText1
+}
+
+MessageText1 {
+  messageText
+}
+
+MessageText2 {
+  messageText
+}
+
+DiagramName {
+  kw<"sequenceDiagram">
+}
+
+ArrowSuffix {
+  "+" | "-"
+}
+
+Link {
+  link | links
+}
+
+Keyword {
+  alt |
+  and |
+  box |
+  break |
+  critical |
+  else |
+  loop |
+  opt |
+  option |
+  par |
+  rect
+}
+
+kw<term> { @specialize<identifier, term> }
+
+@external tokens textTokens from "./tokens" {
+  Activate,
+  Actor,
+  As,
+  Autonumber,
+  Create,
+  Deactivate,
+  Destroy,
+  End,
+  NodeText,
+  Note,
+  Participant,
+  Position,
+  alt,
+  and,
+  box,
+  break,
+  critical,
+  else,
+  link,
+  links
+  loop,
+  opt,
+  option,
+  par,
+  rect
+}
+
+@external tokens messageTextToken from "./tokens" { messageText }
+
+@tokens {
+  spaces[@export] { $[\u0009 \u000b\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000\ufeff]+ }
+
+  newline[@export] { $[\r\n\u2028\u2029] }
+
+  LineComment { "%%" ![\n]* }
+
+  identifierChar { @asciiLetter | $[$\u{a1}-\u{10ffff}] }
+
+  word { identifierChar (identifierChar | @digit)* }
+
+  identifier { word }
+
+  Arrow {
+    "->" |
+    "-->" |
+    "->>" |
+    "-->>" |
+    "-x" |
+    "--x" |
+    "-)" |
+    "--)"
+  }
+
+  @precedence {
+    spaces,
+    newline,
+    Arrow,
+    identifier
+  }
+}
+
+@external propSource sequenceHighlight from "./highlight"
+
+@detectDelim
