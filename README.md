@@ -59,6 +59,7 @@ If you run this code in the browser, you should get syntax highlighting!
 - [pie charts](https://mermaid.js.org/syntax/pie.html)
 - [flowcharts](https://mermaid.js.org/syntax/flowchart.html)
 - [sequence diagrams](https://mermaid.js.org/syntax/sequenceDiagram.html)
+- [user journeys](https://mermaid.js.org/syntax/userJourney.html)
 
 ## Supported Tags
 CodeMirror supports a long list of [tags](https://lezer.codemirror.net/docs/ref/#highlight.tags) that are suitable for handling syntax highlighting in a variety of languages. Some common tags include `name`, `variableName`, `lineComment`, `string`, and `number`.

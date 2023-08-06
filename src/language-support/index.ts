@@ -5,6 +5,7 @@ import {
   pieLanguage,
   flowchartLanguage,
   sequenceLanguage,
+  journeyLanguage,
 } from '../language-definitions';
 
 export function mermaid() {
@@ -25,4 +26,8 @@ export function flowchart() {
 
 export function sequence() {
   return new LanguageSupport(sequenceLanguage);
+}
+
+export function journey() {
+  return new LanguageSupport(journeyLanguage);
 }

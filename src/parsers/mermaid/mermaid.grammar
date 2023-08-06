@@ -4,7 +4,8 @@
     PieDiagram |
     MindmapDiagram |
     FlowchartDiagram |
-    SequenceDiagram
+    SequenceDiagram |
+    JourneyDiagram
   )
 }
 
@@ -19,7 +20,8 @@
   PieDiagram,
   MindmapDiagram,
   FlowchartDiagram,
-  SequenceDiagram
+  SequenceDiagram,
+  JourneyDiagram
 }
 
 @detectDelim

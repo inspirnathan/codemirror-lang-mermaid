@@ -4,6 +4,7 @@ export {
   pieLanguage,
   flowchartLanguage,
   sequenceLanguage,
+  journeyLanguage,
 } from './language-definitions';
 
 export {
@@ -12,9 +13,17 @@ export {
   pieLanguageDescription,
   flowchartLanguageDescription,
   sequenceLanguageDescription,
+  journeyLanguageDescription,
 } from './language-descriptions';
 
-export { mermaid, mindmap, pie, flowchart, sequence } from './language-support';
+export {
+  mermaid,
+  mindmap,
+  pie,
+  flowchart,
+  sequence,
+  journey,
+} from './language-support';
 
 export {
   mermaidTags,
@@ -22,4 +31,5 @@ export {
   pieTags,
   flowchartTags,
   sequenceTags,
+  journeyTags,
 } from './tags';

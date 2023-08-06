@@ -1,0 +1,67 @@
+@top JourneyDiagram {
+  journeyDocument
+}
+
+@skip { spaces }
+
+journeyDocument {
+  DiagramName newline* |
+  DiagramName newline* journeySection newline* |
+  DiagramName newline* journeySection (newline+ journeySection)+ newline*
+}
+
+journeySection {
+  LineComment |
+  Keyword Text |
+  Task
+}
+
+Task {
+  TaskName ":" Score (":" Actor ("," Actor)*)?
+}
+
+Text {
+  text1
+}
+
+TaskName {
+  text2
+}
+
+Score {
+  text2
+}
+
+Actor {
+  text3
+}
+
+DiagramName {
+  kw<"journey">
+}
+
+kw<term> { @specialize<word, term> }
+
+@external tokens keywordTokens from "./tokens" { Keyword }
+
+@external tokens textTokens1 from "./tokens" { text1 }
+
+@external tokens textTokens2 from "./tokens" { text2 }
+
+@external tokens textTokens3 from "./tokens" { text3 }
+
+@tokens {
+  spaces[@export] { $[\u0009 \u000b\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000\ufeff]+ }
+
+  newline[@export] { $[\r\n\u2028\u2029] }
+
+  LineComment { "%%" ![\n]* }
+
+  word { @asciiLetter+ }
+
+  ":" ","
+}
+
+@external propSource journeyHighlight from "./highlight"
+
+@detectDelim

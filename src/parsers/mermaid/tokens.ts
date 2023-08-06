@@ -5,6 +5,7 @@ import {
   PieDiagram,
   FlowchartDiagram,
   SequenceDiagram,
+  JourneyDiagram,
 } from './mermaid.grammar.terms';
 
 const skipCodePoints = [-1, 9, 13, 32];
@@ -15,6 +16,7 @@ const diagramMap: Record<string, number> = {
   flowchart: FlowchartDiagram,
   graph: FlowchartDiagram,
   sequenceDiagram: SequenceDiagram,
+  journey: JourneyDiagram,
 };
 
 const diagrams = Object.keys(diagramMap);

@@ -5,6 +5,7 @@ import {
   pie,
   flowchart,
   sequence,
+  journey,
 } from '../language-support';
 
 export const mermaidLanguageDescription = LanguageDescription.of({
@@ -40,5 +41,12 @@ export const sequenceLanguageDescription = LanguageDescription.of({
   name: 'sequence',
   load: async () => {
     return sequence();
+  },
+});
+
+export const journeyLanguageDescription = LanguageDescription.of({
+  name: 'journey',
+  load: async () => {
+    return journey();
   },
 });

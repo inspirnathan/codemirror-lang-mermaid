@@ -4,6 +4,7 @@ import {
   pieLanguage,
   flowchartLanguage,
   sequenceLanguage,
+  journeyLanguage,
 } from '../dist/index.js';
 import { fileTests } from '@lezer/generator/dist/test';
 import * as fs from 'fs';
@@ -16,6 +17,7 @@ const languages = [
   pieLanguage,
   flowchartLanguage,
   sequenceLanguage,
+  journeyLanguage,
 ];
 
 let testDir = path.dirname(fileURLToPath(import.meta.url));

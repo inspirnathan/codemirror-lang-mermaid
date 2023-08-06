@@ -48,3 +48,12 @@ export const sequenceTags = {
   nodeText: Tag.define(t.variableName),
   position: Tag.define(t.modifier),
 };
+
+export const journeyTags = {
+  diagramName: Tag.define(mermaidTags.diagramName),
+  actor: Tag.define(t.variableName),
+  keyword: Tag.define(t.keyword),
+  lineComment: Tag.define(t.lineComment),
+  score: Tag.define(t.number),
+  text: Tag.define(t.string),
+};

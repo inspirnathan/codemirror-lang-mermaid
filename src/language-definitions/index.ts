@@ -6,6 +6,7 @@ import {
   pieParser,
   flowchartParser,
   sequenceParser,
+  journeyParser,
 } from '../parsers';
 
 export const mermaidLanguage = LRLanguage.define({
@@ -16,6 +17,7 @@ export const mermaidLanguage = LRLanguage.define({
       if (node.name === 'PieDiagram') return { parser: pieParser };
       if (node.name === 'FlowchartDiagram') return { parser: flowchartParser };
       if (node.name === 'SequenceDiagram') return { parser: sequenceParser };
+      if (node.name === 'JourneyDiagram') return { parser: journeyParser };
       return null;
     }),
   }),
@@ -39,4 +41,9 @@ export const flowchartLanguage = LRLanguage.define({
 export const sequenceLanguage = LRLanguage.define({
   name: 'sequence',
   parser: sequenceParser,
+});
+
+export const journeyLanguage = LRLanguage.define({
+  name: 'journey',
+  parser: journeyParser,
 });
