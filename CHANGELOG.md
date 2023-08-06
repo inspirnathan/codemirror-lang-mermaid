@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.3.0...v0.4.0) (2023-08-06)
+
+### Features
+
+- sequence diagram support
+- user journey diagram support
+
+
+
 # [0.3.0](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.2.2...v0.3.0) (2023-07-14)
 
 ### Features
