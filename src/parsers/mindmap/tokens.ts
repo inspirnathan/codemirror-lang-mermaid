@@ -85,6 +85,10 @@ export const lineTextType = new ExternalTokenizer((input, stack) => {
   input.acceptToken(stack.context.lineType);
 });
 
+const tabDepth = (depth: number) => {
+  return 4 - (depth % 4);
+};
+
 export const indentation = new ExternalTokenizer((input, _stack) => {
   let prev = input.peek(-1);
   if (prev == newline || prev == carriageReturn) {
@@ -93,7 +97,7 @@ export const indentation = new ExternalTokenizer((input, _stack) => {
 
     while (true) {
       if (input.next == space) depth++;
-      else if (input.next == tab) depth += 8 - (depth % 8);
+      else if (input.next == tab) depth += tabDepth(depth);
       else break;
       input.advance();
       chars++;
@@ -116,7 +120,7 @@ const indentTracker = {
 const countIndent = (space: string) => {
   let depth = 0;
   for (let i = 0; i < space.length; i++)
-    depth += space.charCodeAt(i) == tab ? 8 - (depth % 8) : 1;
+    depth += space.charCodeAt(i) == tab ? tabDepth(depth) : 1;
   return depth;
 };
 
