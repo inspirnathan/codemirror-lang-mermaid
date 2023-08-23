@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.4.0...v0.4.1) (2023-08-23)
+
+### Features
+
+- add code folding support for mindmap diagrams by importing the language with a config i.e. `mermaid({ fold: true })`
+- set tabs equal to four spaces instead of eight in mindmap diagrams
+
+
+
 # [0.4.0](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.3.0...v0.4.0) (2023-08-06)
 
 ### Features
