@@ -7,20 +7,13 @@ import {
   sequenceLanguage,
   journeyLanguage,
 } from '../language-definitions';
-import { foldByIndent } from '../extensions';
 
-export function mermaid(config = { fold: false }) {
-  return new LanguageSupport(
-    mermaidLanguage,
-    config.fold ? [foldByIndent] : []
-  );
+export function mermaid() {
+  return new LanguageSupport(mermaidLanguage);
 }
 
-export function mindmap(config = { fold: true }) {
-  return new LanguageSupport(
-    mindmapLanguage,
-    config.fold ? [foldByIndent] : []
-  );
+export function mindmap() {
+  return new LanguageSupport(mindmapLanguage);
 }
 
 export function pie() {

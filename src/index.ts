@@ -33,3 +33,5 @@ export {
   sequenceTags,
   journeyTags,
 } from './tags';
+
+export { foldByIndent } from './extensions';
