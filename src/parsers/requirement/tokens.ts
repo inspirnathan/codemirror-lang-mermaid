@@ -21,6 +21,4 @@ export const relationshipStart = new ExternalTokenizer((input) => {
     tokens = tokens.slice(0, -1).trim();
     input.acceptToken(RelationshipStart, tokens.length);
   }
-
-  return;
 });

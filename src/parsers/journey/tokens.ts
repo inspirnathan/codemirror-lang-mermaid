@@ -46,8 +46,6 @@ export const textTokens1 = new ExternalTokenizer((input) => {
   }
 
   input.acceptToken(text1);
-
-  return;
 });
 
 export const textTokens2 = new ExternalTokenizer((input) => {
@@ -58,8 +56,6 @@ export const textTokens2 = new ExternalTokenizer((input) => {
   }
 
   input.acceptToken(text2);
-
-  return;
 });
 
 export const textTokens3 = new ExternalTokenizer((input) => {
@@ -70,6 +66,4 @@ export const textTokens3 = new ExternalTokenizer((input) => {
   }
 
   input.acceptToken(text3);
-
-  return;
 });
