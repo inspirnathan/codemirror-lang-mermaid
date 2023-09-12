@@ -6,6 +6,7 @@ import {
   flowchart,
   sequence,
   journey,
+  requirement,
 } from '../language-support';
 
 export const mermaidLanguageDescription = LanguageDescription.of({
@@ -38,7 +39,8 @@ export const flowchartLanguageDescription = LanguageDescription.of({
 });
 
 export const sequenceLanguageDescription = LanguageDescription.of({
-  name: 'sequence',
+  name: 'sequenceDiagram',
+  alias: ['sequence'],
   load: async () => {
     return sequence();
   },
@@ -48,5 +50,13 @@ export const journeyLanguageDescription = LanguageDescription.of({
   name: 'journey',
   load: async () => {
     return journey();
+  },
+});
+
+export const requirementLanguageDescription = LanguageDescription.of({
+  name: 'requirementDiagram',
+  alias: ['requirement'],
+  load: async () => {
+    return requirement();
   },
 });

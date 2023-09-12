@@ -6,6 +6,7 @@ import {
   flowchartLanguage,
   sequenceLanguage,
   journeyLanguage,
+  requirementLanguage,
 } from '../language-definitions';
 
 export function mermaid() {
@@ -30,4 +31,8 @@ export function sequence() {
 
 export function journey() {
   return new LanguageSupport(journeyLanguage);
+}
+
+export function requirement() {
+  return new LanguageSupport(requirementLanguage);
 }

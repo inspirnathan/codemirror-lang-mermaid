@@ -1,58 +1,44 @@
-@top PieDiagram {
-  pieDocument+
+@top PieDiagram { document+ }
+
+@skip { spaces | LineComment }
+
+document {
+  DiagramName ShowData? (
+    () |
+    Title |
+    Title TitleText |
+    Title TitleText kvPair+ |
+    Title kvPair+ |
+    kvPair+
+  )
 }
 
-@skip { space | LineComment | newline}
-
-pieDocument {
-  DiagramName |
-  DiagramName ShowData |
-  DiagramName ShowData Title |
-  DiagramName ShowData Title TitleText |
-  DiagramName ShowData Title TitleText Dataset+ |
-  DiagramName ShowData Dataset+ |
-  DiagramName Title |
-  DiagramName Title Dataset+ |
-  DiagramName Title TitleText |
-  DiagramName Title TitleText Dataset+ |
-  DiagramName Dataset+
+@skip {} {
+  String {
+    '"' (stringContentDouble)* '"'
+  }
 }
 
-Dataset { 
+kvPair {
   String ":" Number
 }
 
-DiagramName {
-  kw<"pie">
-}
+DiagramName { kw<"pie"> }
 
-Title {
-  kw<"title">
-}
+ShowData { kw<"showData"> }
 
-ShowData {
-  kw<"showData">
-}
+Title { kw<"title"> }
 
-kw<term> { @specialize<word, term> }
+kw<term> { @specialize<identifier, term> }
 
 @external tokens titleText from "./tokens" { TitleText }
 
 @tokens {
-
-  word { @asciiLetter+ }
-
+  identifier { @asciiLetter+ }
+  stringContentDouble { !["]+ }
+  spaces { @whitespace+ }
   Number { @digit+ ("." @digit+)? }
-
-  String { '"' (!["\\] | "\\" _)* '"' }
-
   LineComment { "%%" ![\n]* }
-
-  space { $[ \t\r]+ }
-
-  newline { "\n" }
 }
 
 @external propSource pieHighlighting from "./highlight"
-
-@detectDelim

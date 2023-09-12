@@ -68,7 +68,7 @@ id[I am a square]
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,Square("[",LineText1,"]")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # RoundedSquare
 
@@ -77,7 +77,7 @@ id(I am a rounded square)
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,RoundedSquare("(",LineText1,")")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # Circle
 
@@ -86,7 +86,7 @@ id((I am a circle))
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,Circle("((",LineText1,"))")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # Bang
 
@@ -95,7 +95,7 @@ id))I am a bang((
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,Bang("))",LineText1,"((")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # Cloud
 
@@ -104,7 +104,7 @@ id)I am a cloud(
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,Cloud(")",LineText1,"(")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # Hexagon
 
@@ -113,7 +113,7 @@ id{{I am a hexagon}}
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1,Hexagon("{{",LineText1,"}}")))
+MindmapDiagram(DiagramName,Line(LineText1,ShapedText(LineText1)))
 
 # IconLine
 
@@ -126,7 +126,7 @@ Root
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1),Line(LineText2),Line(IconLine("::",Icon,"(",LineText2,")")),Line(LineText2,RoundedSquare("(",LineText2,")")),Line(IconLine("::",Icon,"(",LineText2,")")))
+MindmapDiagram(DiagramName,Line(LineText1),Line(LineText2),Line(IconLine(Icon,LineText2)),Line(LineText2,ShapedText(LineText2)),Line(IconLine(Icon,LineText2)))
 
 # ClassLine
 
@@ -139,4 +139,4 @@ Root
 
 ==>
 
-MindmapDiagram(DiagramName,Line(LineText1),Line(LineText2,Square("[",LineText2,"]")),Line(ClassLine(LineText2)),Line(LineText2,RoundedSquare("(",LineText2,")")),Line(LineText2))
+MindmapDiagram(DiagramName,Line(LineText1),Line(LineText2,ShapedText(LineText2)),Line(ClassLine(LineText2)),Line(LineText2,ShapedText(LineText2)),Line(LineText2))

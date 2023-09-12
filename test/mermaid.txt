@@ -29,3 +29,27 @@ graph
 ==>
 
 MermaidDiagram(FlowchartDiagram(DiagramName))
+
+# SequenceDiagram
+
+sequenceDiagram
+
+==>
+
+MermaidDiagram(SequenceDiagram(DiagramName))
+
+# Journey
+
+journey
+
+==>
+
+MermaidDiagram(JourneyDiagram(DiagramName))
+
+# RequirementDiagram
+
+requirementDiagram
+
+==>
+
+MermaidDiagram(RequirementDiagram(DiagramName))

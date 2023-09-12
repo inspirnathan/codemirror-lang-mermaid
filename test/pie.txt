@@ -20,7 +20,7 @@ pie title
 
 ==>
 
-PieDiagram(DiagramName,Title,TitleText)
+PieDiagram(DiagramName,Title)
 
 # Title + TitleText
 
@@ -30,16 +30,16 @@ pie title This is some title text
 
 PieDiagram(DiagramName,Title,TitleText)
 
-# Dataset
+# Key-Value Pair
 
 pie
 "Calcium" : 42.96
 
 ==>
 
-PieDiagram(DiagramName,Dataset(String,Number))
+PieDiagram(DiagramName,String,Number)
 
-# Datasets
+# Multiple Key-Value Pairs
 
 pie
 "Calcium" : 42.96
@@ -49,7 +49,7 @@ pie
 
 ==>
 
-PieDiagram(DiagramName,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+PieDiagram(DiagramName,String,Number,String,Number,String,Number,String,Number)
 
 # ShowData + Title
 
@@ -57,7 +57,7 @@ pie showData title
 
 ==>
 
-PieDiagram(DiagramName,ShowData,Title,TitleText)
+PieDiagram(DiagramName,ShowData,Title)
 
 # ShowData + Title + TitleText
 
@@ -67,16 +67,16 @@ pie showData title This is some title text
 
 PieDiagram(DiagramName,ShowData,Title,TitleText)
 
-# ShowData + Title + TitleText + Dataset
+# ShowData + Title + TitleText + Key-Value Pair
 
 pie showData title This is some title text
 "Calcium" : 42.96
 
 ==>
 
-PieDiagram(DiagramName,ShowData,Title,TitleText,Dataset(String,Number))
+PieDiagram(DiagramName,ShowData,Title,TitleText,String,Number)
 
-# ShowData + Title + TitleText + Datasets
+# ShowData + Title + TitleText + Key-Value Pairs
 
 pie showData title This is some title text
 "Calcium" : 42.96
@@ -86,18 +86,18 @@ pie showData title This is some title text
 
 ==>
 
-PieDiagram(DiagramName,ShowData,Title,TitleText,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+PieDiagram(DiagramName,ShowData,Title,TitleText,String,Number,String,Number,String,Number,String,Number)
 
-# Title + TitleText + Dataset
+# Title + TitleText + Key-Value Pair
 
 pie title This is some title text
 "Calcium" : 42.96
 
 ==>
 
-PieDiagram(DiagramName,Title,TitleText,Dataset(String,Number))
+PieDiagram(DiagramName,Title,TitleText,String,Number)
 
-# Title + TitleText + Datasets
+# Title + TitleText + Key-Value Pairs
 
 pie title This is some title text
 "Calcium" : 42.96
@@ -107,5 +107,60 @@ pie title This is some title text
 
 ==>
 
-PieDiagram(DiagramName,Title,TitleText,Dataset(String,Number),Dataset(String,Number),Dataset(String,Number),Dataset(String,Number))
+PieDiagram(DiagramName,Title,TitleText,String,Number,String,Number,String,Number,String,Number)
 
+# ShowData + Key-Value Pairs
+
+pie showData
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,ShowData,String,Number,String,Number,String,Number,String,Number)
+
+# ShowData + Title + Key-Value Pairs
+
+pie showData title
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText,String,Number,String,Number,String,Number,String,Number)
+
+# ShowData + Empty Spaces + Key-Value Pairs
+
+pie showData   
+"Calcium" : 42.96
+"Potassium" : 50.05
+"Magnesium" : 10.01
+"Iron" :  5
+
+==>
+
+PieDiagram(DiagramName,ShowData,String,Number,String,Number,String,Number,String,Number)
+
+# LineComment
+
+pie %% comment
+
+==>
+
+PieDiagram(DiagramName,LineComment)
+
+# Key-Value Pair + LineComment
+
+pie
+"Calcium" : 42.96 %% comment`;
+
+export const input18 = `pie showData title
+"Calcium" : 42.96 %% comment
+
+==>
+
+PieDiagram(DiagramName,String,Number,LineComment,String(⚠),⚠,String(⚠),⚠)

@@ -1,7 +1,7 @@
 import { styleTags } from '@lezer/highlight';
 import { sequenceTags } from '../../tags';
 
-export const sequenceHighlight = styleTags({
+export const sequenceHighlighting = styleTags({
   DiagramName: sequenceTags.diagramName,
   NodeText: sequenceTags.nodeText,
   'Activate Deactivate Create Destroy Autonumber End Link Keyword Note':

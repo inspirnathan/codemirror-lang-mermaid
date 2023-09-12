@@ -1,16 +1,18 @@
 @top JourneyDiagram {
-  journeyDocument
+  document
 }
 
 @skip { spaces }
 
-journeyDocument {
-  DiagramName newline* |
-  DiagramName newline* journeySection newline* |
-  DiagramName newline* journeySection (newline+ journeySection)+ newline*
+document {
+  DiagramName newlines* (
+    () |
+    subDocument newlines* |
+    subDocument (newlines+ subDocument)+ newlines*
+  )
 }
 
-journeySection {
+subDocument {
   LineComment |
   Keyword Text |
   Task
@@ -36,32 +38,22 @@ Actor {
   text3
 }
 
-DiagramName {
-  kw<"journey">
-}
+DiagramName { kw<"journey"> }
 
-kw<term> { @specialize<word, term> }
+kw<term> { @specialize<identifier, term> }
 
 @external tokens keywordTokens from "./tokens" { Keyword }
-
 @external tokens textTokens1 from "./tokens" { text1 }
-
 @external tokens textTokens2 from "./tokens" { text2 }
-
 @external tokens textTokens3 from "./tokens" { text3 }
 
 @tokens {
-  spaces[@export] { $[\u0009 \u000b\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000\ufeff]+ }
-
-  newline[@export] { $[\r\n\u2028\u2029] }
-
+  spaces { @whitespace+ }
+  newlines { $[\n]+ }
   LineComment { "%%" ![\n]* }
+  identifier { @asciiLetter+ }
 
-  word { @asciiLetter+ }
-
-  ":" ","
+  @precedence { newlines, spaces }
 }
 
-@external propSource journeyHighlight from "./highlight"
-
-@detectDelim
+@external propSource journeyHighlighting from "./highlight"

@@ -5,6 +5,7 @@ export {
   flowchartLanguage,
   sequenceLanguage,
   journeyLanguage,
+  requirementLanguage,
 } from './language-definitions';
 
 export {
@@ -14,6 +15,7 @@ export {
   flowchartLanguageDescription,
   sequenceLanguageDescription,
   journeyLanguageDescription,
+  requirementLanguageDescription,
 } from './language-descriptions';
 
 export {
@@ -23,6 +25,7 @@ export {
   flowchart,
   sequence,
   journey,
+  requirement,
 } from './language-support';
 
 export {
@@ -32,6 +35,7 @@ export {
   flowchartTags,
   sequenceTags,
   journeyTags,
+  requirementTags,
 } from './tags';
 
 export { foldByIndent } from './extensions';

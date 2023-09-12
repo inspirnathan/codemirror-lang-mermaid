@@ -3,7 +3,7 @@
   DiagramName Line*
 }
 
-@skip { space | newlineEmpty }
+@skip { spaces | newlineEmpty }
 
 lineText {
   LineText1 |
@@ -13,36 +13,36 @@ lineText {
   LineText5
 }
 
-shapedText {
-  Square |
-  RoundedSquare |
-  Circle |
-  Bang |
-  Cloud |
-  Hexagon
+ShapedText {
+  square |
+  roundedSquare |
+  circle |
+  bang |
+  cloud |
+  hexagon
 }
 
-Square {
+square {
   "[" lineText "]"
 }
 
-RoundedSquare {
+roundedSquare {
   "(" lineText ")"
 }
 
-Circle {
+circle {
   "((" lineText "))"
 }
 
-Bang {
+bang {
   "))" lineText "(("
 }
 
-Cloud {
+cloud {
   ")" lineText "("
 }
 
-Hexagon {
+hexagon {
   "{{" lineText "}}"
 }
 
@@ -60,25 +60,20 @@ Line {
     lineText |
     IconLine |
     ClassLine |
-    shapedText |
-    lineText shapedText
+    ShapedText |
+    lineText ShapedText
   )
 }
 
-DiagramName {
-  kw<"mindmap">
-}
+DiagramName { kw<"mindmap"> }
 
-Icon {
-  kw<"icon">
-}
+Icon { kw<"icon"> }
 
 kw<term> { @specialize<word, term> }
 
 @context trackIndent from "./tokens.js"
 
 @external tokens indentation from "./tokens" { indent }
-
 @external tokens lineTextType from "./tokens" { 
   LineText1,
   LineText2,
@@ -88,23 +83,10 @@ kw<term> { @specialize<word, term> }
 }
 
 @tokens {
-  space { ($[ \t\f] | "\\" $[\n\r])+ }
-
+  spaces { ($[ \t\f] | "\\" $[\n\r])+ }
   word { @asciiLetter+ }
-
-  "(" ")"
-
-  "((" "))"
-
-  "[" "]"
-
-  "{{" "}}"
-
-  "::"
 }
 
 @external tokens newlines from "./tokens" { newline, newlineEmpty }
 
 @external propSource mindmapHighlighting from "./highlight"
-
-@detectDelim

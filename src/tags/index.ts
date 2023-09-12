@@ -57,3 +57,14 @@ export const journeyTags = {
   score: Tag.define(t.number),
   text: Tag.define(t.string),
 };
+
+export const requirementTags = {
+  diagramName: Tag.define(mermaidTags.diagramName),
+  lineComment: Tag.define(t.lineComment),
+  number: Tag.define(t.number),
+  subDiagramType: Tag.define(t.typeName),
+  unquotedString: Tag.define(t.content),
+  quotedString: Tag.define(t.string),
+  keyword: Tag.define(t.keyword),
+  arrow: Tag.define(t.contentSeparator),
+};

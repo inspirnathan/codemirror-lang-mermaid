@@ -1,17 +1,15 @@
 import { ExternalTokenizer } from '@lezer/lr';
 import { TitleText } from './pie.grammar.terms';
 
-const newline = 10;
-
 export const titleText = new ExternalTokenizer((input) => {
-  let { next } = input;
-
-  if (next === newline) {
+  if (input.next === 10) {
     input.acceptToken(TitleText);
     return;
   }
 
-  while (input.next !== newline && input.next !== -1) {
+  if (input.next === -1) return;
+
+  while (input.next !== 10 && input.next !== -1) {
     input.advance();
   }
 

@@ -1,7 +1,7 @@
 import { styleTags } from '@lezer/highlight';
 import { journeyTags } from '../../tags';
 
-export const journeyHighlight = styleTags({
+export const journeyHighlighting = styleTags({
   DiagramName: journeyTags.diagramName,
   'Text TaskName': journeyTags.text,
   Actor: journeyTags.actor,

@@ -1,5 +1,5 @@
 import { ExternalTokenizer } from '@lezer/lr';
-import { NodeText, NodeEdgeText } from './flowchart.grammar.terms';
+import { NodeText, NodeEdgeText, StyleText } from  './flowchart.grammar.terms';
 
 const skipCodePoints = [-1, 9, 13, 32, 34, 39, 96];
 const startBracketCodePoints = [40, 62, 91, 123, 124];
@@ -42,4 +42,14 @@ export const nodeEdgeText = new ExternalTokenizer((input) => {
   }
 
   input.acceptToken(NodeEdgeText);
+});
+
+export const styleText = new ExternalTokenizer((input) => {
+  if (input.next === 10 || input.next === -1) return;
+
+  while (input.next !== 10 && input.next !== -1) {
+    input.advance();
+  }
+
+  input.acceptToken(StyleText);
 });

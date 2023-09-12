@@ -5,7 +5,8 @@
     MindmapDiagram |
     FlowchartDiagram |
     SequenceDiagram |
-    JourneyDiagram
+    JourneyDiagram |
+    RequirementDiagram
   )
 }
 
@@ -21,7 +22,6 @@
   MindmapDiagram,
   FlowchartDiagram,
   SequenceDiagram,
-  JourneyDiagram
+  JourneyDiagram,
+  RequirementDiagram
 }
-
-@detectDelim
