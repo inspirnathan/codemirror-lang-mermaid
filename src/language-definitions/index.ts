@@ -10,55 +10,65 @@ import {
   requirementParser,
   ganttParser,
 } from '../parsers';
+import { DiagramType, MermaidLanguageType } from '../types';
 
 export const mermaidLanguage = LRLanguage.define({
-  name: 'mermaid',
+  name: MermaidLanguageType.Mermaid,
   parser: mermaidParser.configure({
     wrap: parseMixed((node) => {
-      if (node.name === 'MindmapDiagram') return { parser: mindmapParser };
-      if (node.name === 'PieDiagram') return { parser: pieParser };
-      if (node.name === 'FlowchartDiagram') return { parser: flowchartParser };
-      if (node.name === 'SequenceDiagram') return { parser: sequenceParser };
-      if (node.name === 'JourneyDiagram') return { parser: journeyParser };
-      if (node.name === 'RequirementDiagram')
-        return { parser: requirementParser };
-      if (node.name === 'GanttDiagram') return { parser: ganttParser };
-      return null;
+      switch (node.name) {
+        case DiagramType.Mindmap:
+          return { parser: mindmapParser };
+        case DiagramType.Pie:
+          return { parser: pieParser };
+        case DiagramType.Flowchart:
+          return { parser: flowchartParser };
+        case DiagramType.Sequence:
+          return { parser: sequenceParser };
+        case DiagramType.Journey:
+          return { parser: journeyParser };
+        case DiagramType.Requirement:
+          return { parser: requirementParser };
+        case DiagramType.Gantt:
+          return { parser: ganttParser };
+        default:
+          return null;
+      }
     }),
   }),
 });
 
 export const mindmapLanguage = LRLanguage.define({
-  name: 'mindmap',
+  name: MermaidLanguageType.Mindmap,
   parser: mindmapParser,
 });
 
 export const pieLanguage = LRLanguage.define({
-  name: 'pie',
+  name: MermaidLanguageType.Pie,
   parser: pieParser,
 });
 
 export const flowchartLanguage = LRLanguage.define({
-  name: 'flowchart',
+  name: MermaidLanguageType.Flowchart,
   parser: flowchartParser,
 });
 
 export const sequenceLanguage = LRLanguage.define({
-  name: 'sequence',
+  name: MermaidLanguageType.Sequence,
   parser: sequenceParser,
 });
 
 export const journeyLanguage = LRLanguage.define({
-  name: 'journey',
+  name: MermaidLanguageType.Journey,
   parser: journeyParser,
 });
 
 export const requirementLanguage = LRLanguage.define({
-  name: 'requirement',
+  name: MermaidLanguageType.Requirement,
   parser: requirementParser,
 });
 
 export const ganttLanguage = LRLanguage.define({
-  name: 'gantt',
+  name: MermaidLanguageType.Gantt,
   parser: ganttParser,
 });
