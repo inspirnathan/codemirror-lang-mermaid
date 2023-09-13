@@ -6,6 +6,7 @@ export {
   sequenceLanguage,
   journeyLanguage,
   requirementLanguage,
+  ganttLanguage,
 } from './language-definitions';
 
 export {
@@ -16,6 +17,7 @@ export {
   sequenceLanguageDescription,
   journeyLanguageDescription,
   requirementLanguageDescription,
+  ganttLanguageDescription,
 } from './language-descriptions';
 
 export {
@@ -26,6 +28,7 @@ export {
   sequence,
   journey,
   requirement,
+  gantt,
 } from './language-support';
 
 export {
@@ -36,6 +39,7 @@ export {
   sequenceTags,
   journeyTags,
   requirementTags,
+  ganttTags,
 } from './tags';
 
 export { foldByIndent } from './extensions';

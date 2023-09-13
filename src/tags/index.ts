@@ -67,3 +67,10 @@ export const requirementTags = {
   quotedString: Tag.define(t.string),
   unquotedString: Tag.define(t.content),
 };
+
+export const ganttTags = {
+  diagramName: Tag.define(mermaidTags.diagramName),
+  keyword: Tag.define(t.keyword),
+  lineComment: Tag.define(t.lineComment),
+  string: Tag.define(t.string),
+};

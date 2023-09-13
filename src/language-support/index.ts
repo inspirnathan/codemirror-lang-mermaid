@@ -7,6 +7,7 @@ import {
   sequenceLanguage,
   journeyLanguage,
   requirementLanguage,
+  ganttLanguage,
 } from '../language-definitions';
 
 export function mermaid() {
@@ -35,4 +36,8 @@ export function journey() {
 
 export function requirement() {
   return new LanguageSupport(requirementLanguage);
+}
+
+export function gantt() {
+  return new LanguageSupport(ganttLanguage);
 }

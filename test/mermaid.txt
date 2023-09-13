@@ -53,3 +53,11 @@ requirementDiagram
 ==>
 
 MermaidDiagram(RequirementDiagram(DiagramName))
+
+# Gantt
+
+gantt
+
+==>
+
+MermaidDiagram(GanttDiagram(DiagramName))

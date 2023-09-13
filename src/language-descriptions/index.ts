@@ -7,6 +7,7 @@ import {
   sequence,
   journey,
   requirement,
+  gantt,
 } from '../language-support';
 
 export const mermaidLanguageDescription = LanguageDescription.of({
@@ -58,5 +59,12 @@ export const requirementLanguageDescription = LanguageDescription.of({
   alias: ['requirement'],
   load: async () => {
     return requirement();
+  },
+});
+
+export const ganttLanguageDescription = LanguageDescription.of({
+  name: 'gantt',
+  load: async () => {
+    return gantt();
   },
 });

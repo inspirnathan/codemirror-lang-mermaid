@@ -5,3 +5,4 @@ export declare const FlowchartDiagram: number;
 export declare const SequenceDiagram: number;
 export declare const JourneyDiagram: number;
 export declare const RequirementDiagram: number;
+export declare const GanttDiagram: number;
