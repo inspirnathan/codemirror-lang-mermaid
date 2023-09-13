@@ -34,11 +34,11 @@ ArrowSuffix {
   "+" | "-"
 }
 
-Link {
+Link[group=Keyword1] {
   link | links
 }
 
-Keyword {
+Keyword[group=Keyword1] {
   alt |
   and |
   box |
@@ -58,17 +58,17 @@ kw<term> { @specialize<identifier, term> }
 
 @external tokens messageTextToken from "./tokens" { messageText }
 @external tokens textTokens from "./tokens" {
-  Activate,
-  Actor,
-  As,
-  Autonumber,
-  Create,
-  Deactivate,
-  Destroy,
-  End,
+  Activate[group=Keyword1],
+  Autonumber[group=Keyword1],
+  Create[group=Keyword1],
+  Deactivate[group=Keyword1],
+  Destroy[group=Keyword1],
+  End[group=Keyword1],
+  Note[group=Keyword1],
+  Actor[group=Keyword2],
+  As[group=Keyword2],
+  Participant[group=Keyword2],
   NodeText,
-  Note,
-  Participant,
   Position,
   alt,
   and,

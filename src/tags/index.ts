@@ -60,11 +60,10 @@ export const journeyTags = {
 
 export const requirementTags = {
   diagramName: Tag.define(mermaidTags.diagramName),
+  arrow: Tag.define(t.contentSeparator),
+  keyword: Tag.define(t.keyword),
   lineComment: Tag.define(t.lineComment),
   number: Tag.define(t.number),
-  subDiagramType: Tag.define(t.typeName),
-  unquotedString: Tag.define(t.content),
   quotedString: Tag.define(t.string),
-  keyword: Tag.define(t.keyword),
-  arrow: Tag.define(t.contentSeparator),
+  unquotedString: Tag.define(t.content),
 };

@@ -2,10 +2,9 @@ import { styleTags } from '@lezer/highlight';
 import { requirementTags } from '../../tags';
 
 export const requirementHighlighting = styleTags({
-  DiagramName: requirementTags.diagramName,
+  'DiagramName SubDiagramType': requirementTags.diagramName,
   LineComment: requirementTags.lineComment,
   IDNumber: requirementTags.number,
-  SubDiagramType: requirementTags.subDiagramType,
   'UnquotedString RelationshipStart': requirementTags.unquotedString,
   QuotedString: requirementTags.quotedString,
   PropKeyword: requirementTags.unquotedString,
