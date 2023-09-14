@@ -156,11 +156,17 @@ PieDiagram(DiagramName,LineComment)
 # Key-Value Pair + LineComment
 
 pie
-"Calcium" : 42.96 %% comment`;
-
-export const input18 = `pie showData title
 "Calcium" : 42.96 %% comment
 
 ==>
 
-PieDiagram(DiagramName,String,Number,LineComment,String(⚠),⚠,String(⚠),⚠)
+PieDiagram(DiagramName,String,Number,LineComment)
+
+# Key-Value Pair + ShowData + Title + LineComment
+
+pie showData title
+"Calcium" : 42.96 %% comment
+
+==>
+
+PieDiagram(DiagramName,ShowData,Title,TitleText,String,Number,LineComment)
