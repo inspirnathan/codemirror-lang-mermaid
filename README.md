@@ -60,6 +60,8 @@ If you run this code in the browser, you should get syntax highlighting!
 - [flowcharts](https://mermaid.js.org/syntax/flowchart.html)
 - [sequence diagrams](https://mermaid.js.org/syntax/sequenceDiagram.html)
 - [user journeys](https://mermaid.js.org/syntax/userJourney.html)
+- [requirement diagrams](https://mermaid.js.org/syntax/requirementDiagram.html)
+- [gantt charts](https://mermaid.js.org/syntax/gantt.html)
 
 ## Supported Tags
 CodeMirror supports a long list of [tags](https://lezer.codemirror.net/docs/ref/#highlight.tags) that are suitable for handling syntax highlighting in a variety of languages. Some common tags include `name`, `variableName`, `lineComment`, `string`, and `number`.
@@ -141,3 +143,53 @@ It's up to your preference! Though, I personally prefer custom tags 🙂. As sta
 The custom tags in the `codemirror-lang-mermaid` package provide a bit more control of what tokens get syntax highlighting. Notice that in the pie chart example above, `t.string` is both the parent of `pieTags.string` and `pieTags.titleText`. I created two custom tags to style the `TitleText` token differently than the `String` tokens. However, if your app already has a color theme and you don't want the overhead of custom tags, then continue using the parent tags.
 
 Do note that not all custom tags have parent tags (i.e. most of the mindmap tags) which means you'll still need to use custom tags for those tokens. The mindmap diagram has special syntax highlighting that changes depending on how many indentions there are on each line.
+
+## Extensions
+The `codemirror-lang-mermaid` package provides support for the following extension:
+
+- [foldByIndent](https://github.com/inspirnathan/codemirror-lang-mermaid/blob/main/src/extensions/index.ts)
+
+By enabling the `foldByIndent` extension, the CodeMirror editor will add code folding support across all Mermaid diagrams. [Code folding](https://en.wikipedia.org/wiki/Code_folding) is a common feature in text editors and IDEs that let you hide ("fold") parts of a document. This can help make the document easier to read or manage. 
+
+Example usage:
+```js
+import { basicSetup, EditorView } from 'codemirror';
+import { mermaid, mindmapTags } from 'codemirror-lang-mermaid';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
+
+const myHighlightStyle = HighlightStyle.define([
+  { tag: mindmapTags.diagramName, color: '#9650c8' },
+  { tag: mindmapTags.lineText1, color: '#ce9178' },
+  { tag: mindmapTags.lineText2, color: 'green' },
+  { tag: mindmapTags.lineText3, color: 'red' },
+  { tag: mindmapTags.lineText4, color: 'magenta' },
+  { tag: mindmapTags.lineText5, color: '#569cd6' },
+]);
+
+new EditorView({
+  doc: `mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+`,
+  extensions: [basicSetup, mermaid(), syntaxHighlighting(myHighlightStyle), foldByIndent()],
+  parent: document.body,
+});
+```
+
+By adding `foldByIndent` to your list of extensions, code folding by indents will be enabled. Keep in mind that this example is using the `basicSetup` extension, provided by CodeMirror, which adds arrows on all lines that provide code folding support. The `foldByIndent` extension will fold code based on the number of indents on the current line and the number of indents on the following lines.
+
+![Mindmap diagram with code folding enabled](https://raw.githubusercontent.com/inspirnathan/codemirror-lang-mermaid/main/.github/mindmap-code-folding.gif)

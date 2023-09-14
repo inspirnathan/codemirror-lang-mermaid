@@ -1,3 +1,17 @@
+# [0.5.0](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.4.1...v0.5.0) (2023-09-14)
+
+### Features
+
+- requirement diagram support
+- gantt chart diagram support
+- `foldByIndent` extension was added to support code folding across all Mermaid diagram types including usage in Markdown fenced code blocks
+
+### Deprecations
+
+- deprecate the `mermaid({ fold: true })` config in favor of the `foldByIndent` extension
+
+
+
 ## [0.4.1](https://github.com/inspirnathan/codemirror-lang-mermaid/compare/v0.4.0...v0.4.1) (2023-08-23)
 
 ### Features
